@@ -3,6 +3,7 @@
   --bg-color: #ffffff;
   --bg-color-fade:rgba(255, 255, 255, 0.386);
   --accent-color: #630606;
+  --red-color-fade: rgba(99, 6, 6, 0.8); 
   --error-red: #cc0000;
   --error-red-light: #ffcccc;
   --yellow-light: #fff0c8;
@@ -290,6 +291,7 @@ li a:focus-visible {
 /*Dyslexia Mode*/
 .dyslexia-toggle {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.75rem;
   font-family: inherit;
@@ -297,7 +299,8 @@ li a:focus-visible {
   border-radius: 999px;
   padding: 5px 10px;
   width: fit-content;
-
+  min-width: 200px;
+  height:fit-content;
   /* key fix: push to the right in flex container */
   margin-left: auto;
 }
@@ -360,6 +363,7 @@ body.dyslexia-mode #dyslexia-toggle {
   border: none;
   cursor: pointer;
   z-index: 0; 
+  align-self: center;
 }
 
 .hamburger span {
@@ -383,6 +387,46 @@ body.dyslexia-mode #dyslexia-toggle {
   display: none;
 }
 
+/*FOOTER*/
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0; 
+  height: fit-content;
+  padding: 1.5vw;
+  z-index: 2;
+  align-items: center;
+}
+
+footer .primary-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  background-color: var(--readable-box-color);
+  width: fit-content; 
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  align-items: center;
+}
+
+footer .primary-menu li {
+  align-self: center;
+  padding: 0;
+}
+
+footer .primary-menu li.social {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+footer .primary-menu li.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*JOBS PAGE AND FORM STYLING*/
 
 body.jobs main {
@@ -569,11 +613,17 @@ textarea.error {
 }
 
 @media (prefers-color-scheme: dark) {
+  header{
+    background-color: var(--accent-color-fade);
+  }
   body {
     color: var(--dark-text);
   }
   a{
     color: var(--dark-text);
+  }
+  footer .primary-menu {
+    background-color: var(--red-color-fade);
   }
   .skip-link{
     background-color: var(--accent-color);
@@ -724,7 +774,14 @@ textarea.error {
   button[type="reset"] {
     width: 100%;
   }
+  
+  footer .primary-menu{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }
+
 
 @media (max-width: 900px) {
   .social img{

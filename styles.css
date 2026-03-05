@@ -1,0 +1,731 @@
+:root {
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --bg-color-fade:rgba(255, 255, 255, 0.386);
+  --accent-color: #630606;
+  --error-red: #cc0000;
+  --error-red-light: #ffcccc;
+  --yellow-light: #fff0c8;
+  --accent-two: #bc8d00;
+  --accent-color-fade: rgba(0, 0, 0, 0.60);
+  --dark-bg: #2c2c2c;
+  --dark-bg-two: #4b4b4b;
+  --dark-text: #F7F7F7; 
+  --focus: #1159ab;
+  --focus-dark: #51a2ff;
+  --grey-light: #ccc;
+  --readable-box-color: rgba(255, 255, 255, 0.85);
+  --box-shadow: rgba(0, 0, 0, 0.3);
+  --transparent: rgba(0, 0, 0, 0);
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url(./assets/OpenDyslexic-Regular.otf);
+}
+@font-face {
+    font-family: 'Verdana';
+    src: url(./assets/Verdana.ttf);
+}
+
+html,
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Verdana", sans-serif;
+}
+body{
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1592505151560-CEYVJVN3I89QY1W0RVCQ/homepage%2Bbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+
+header{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 3vw;
+  margin-top: 2vw;
+}
+main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;        /* horizontal centering */
+  justify-content: flex-start; /* vertical top alignment */
+  text-align: center;
+  margin-top: 3vw;
+}
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+
+/*BODY AND PHOTO STYLING*/
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0; /* keep as default if you want the original background hidden */
+  /* transition: opacity 0.5s ease-in-out; */ /* REMOVE THIS */
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--bg-color-fade);
+  z-index: 0;
+}
+
+
+body.bg-food::after {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1682466593120-5XAHETOP9T0EJ8B3QXQ9/DSC09993.jpg");
+  opacity: 1;
+}
+
+body.bg-drink::after {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1681236670642-6CSM02E4DPV5VDE2HC1P/DSC04756.jpg");
+  opacity: 1;
+}
+
+body.bg-visit::after {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1683046927496-STR69ORZ93CP3G6DN9E6/public.jpeg");
+  opacity: 1;
+}
+
+body.bg-happy::after {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1739847118194-CU3IDQPMOUGMMX12Z4S9/HH.jpg");
+  opacity: 1;
+}
+/*general styles*/
+
+p{
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    line-height: 1.5;
+    max-width: 65ch;
+    text-align: start;
+}
+
+.primary-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.primary-actions ul {
+  justify-content: center;
+  gap: 60px;
+  width: 70%;
+}
+
+
+.action-link {
+  font-size: clamp(1.05rem, 8vw, 5rem);
+
+}
+button {
+  font-family: inherit;
+}
+a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+     margin: 0, auto;
+    padding: 0;
+    gap: 2.5vw;
+}
+
+li{
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+}
+
+h1{
+   font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+address{
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.5;
+}
+/*header styles*/
+.site-branding{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.site-branding img{
+  width: 10vw;
+}
+
+#main{
+    margin-top: 1vw;
+    padding: 1vw;
+}
+
+.skip-link {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+  padding: 10px 15px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2vw;
+  height: auto;
+}
+
+.social img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+li a:hover,
+li a:focus-visible {
+    text-decoration: underline;
+
+}
+
+/* Switch body */
+.switch {
+  all: unset;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45px;
+  height: 24px;
+  background-color: var(--grey-light);
+  border-radius: 999px;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  isolation: isolate;
+  transition: var(--bg-color) 0.2s ease;
+}
+
+.switch-handle {
+  width: 18px;
+  height: 18px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s ease;
+}
+
+
+.switch[aria-checked="true"] {
+  background-color: var(--accent-color);
+}
+
+.switch[aria-checked="true"] .switch-handle {
+  transform: translateX(21px);
+}
+
+
+/* Keyboard focus */
+.switch:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/*Dyslexia Mode*/
+.dyslexia-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: inherit;
+  background-color: var(--bg-color);
+  border-radius: 999px;
+  padding: 5px 10px;
+  width: fit-content;
+
+  /* key fix: push to the right in flex container */
+  margin-left: auto;
+}
+
+.dyslexia-mode button {
+  font-family: "OpenDyslexic", Verdana, sans-serif;
+}
+
+.dyslexia-mode {
+  font-family: "OpenDyslexic", Verdana, sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  word-spacing: 0.16em;
+}
+
+ #dyslexia-toggle:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+body.dyslexia-mode #dyslexia-toggle {
+  font-family: "OpenDyslexic", Verdana, sans-serif;
+}
+
+.dyslexia-mode .primary-actions a {
+  letter-spacing: 0.04em; /* reduced */
+  word-spacing: 0.08em;
+}
+::placeholder {
+  font-family: inherit;
+}
+
+.dyslexia-mode ::placeholder {
+  font-family: "OpenDyslexic", Verdana, sans-serif;
+}
+.skip-link:focus { top: 0; }
+
+.main-box {
+  background-color: var(--bg-color); /* semi-transparent white for readability */
+  padding: 3rem 2rem;  /* space around text and links */
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 8px 20px var(--box-shadow); /* subtle shadow to float above bg */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: fit-content; /* optional: constrain width */
+  width: 75%;
+  margin: 0 auto; /* center horizontally */
+}
+
+ 
+.hamburger {
+  display: none;  
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 0; 
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--text-color);
+  border-radius: 2px;
+}
+
+
+.header-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+
+.header-menu.closed {
+  display: none;
+}
+
+/*JOBS PAGE AND FORM STYLING*/
+
+body.jobs main {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+    form {
+      background: var(--bg-color);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px var(--box-shadow);
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 0 0 0.5rem 0;
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--text-color);
+      flex: 1;
+      align-items:flex-start;
+      letter-spacing: 0.08em;
+    }
+fieldset label {
+  flex: 1;
+}
+
+form > label {
+  flex: none;
+  width: 100%;
+}
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--grey-light);
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-weight: normal;
+      border-radius:15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      padding: 0.4rem;
+      cursor: pointer;
+    }
+
+    #contactForm.hidden {
+      display: none;
+    }
+    button[type="submit"] {
+      padding: 0.75rem;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+    }
+    button[type="reset"]{
+      padding: 0.75rem;
+      background-color: var(--background-color);
+      color: var(--accent-color);
+      border: solid 2px var(--accent-color);
+      border-radius: 15px;
+      font-size: 1rem;
+      width:fit-content;
+    }
+    button[type="submit"]:hover {
+      cursor: pointer;
+    }
+#returnBtn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+label{
+  align-self:flex-start;
+}
+/*Feed back on the form*/
+input.error,
+textarea.error {
+  border-color: #ffcccc;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  display: none;
+  color: var(--error-red);
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin-top: 0.25rem;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.error-message.visible {
+  display: flex;
+}
+/*Confirmation*/
+#confirmation {
+      display: none;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 500px;
+      text-align: center;
+    }
+
+    #confirmation h2 {
+      color: var(--accent-color);
+    }
+
+    #confirmation dl {
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    #confirmation dt {
+      font-weight: bold;
+      color: #333;
+      margin-top: 0.75rem;
+    }
+
+    #confirmation dd {
+      margin: 0.2rem 0 0 0;
+      color: #555;}
+
+/* Optional: responsive adjustments */
+@media (max-width: 768px) {
+  .main-box {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--dark-text);
+  }
+  a{
+    color: var(--dark-text);
+  }
+  .skip-link{
+    background-color: var(--accent-color);
+  }
+  body::before {
+  background: var(--accent-color-fade);
+}
+  .dyslexia-toggle{
+    background-color: var(--accent-color);
+  }
+  .switch[aria-checked="true"] {
+  background-color: var(--accent-two);
+}
+  .main-box{
+    background-color: transparent;
+    box-shadow:0 8px 20px var(--transparent);
+  }
+  
+:focus-visible {
+  outline: 3px solid var(--focus-dark);
+  outline-offset: 3px;
+}
+ #dyslexia-toggle:focus {
+  outline: 3px solid var(--focus-dark);
+  outline-offset: 3px;
+}
+ .hamburger span{
+    background-color: var(--bg-color);
+  }
+  /*Form Page*/
+  body.jobs{
+    background-color:var(--dark-bg);
+  }
+  form{
+    background-color:var(--dark-bg);
+    box-shadow: 0 4px 12px var(--bg-color-fade);
+  }
+  label{
+    color: var(--dark-text);
+  }
+  input, textarea{
+    background-color: var(--dark-bg-two);
+    color: var(--dark-text);
+  }
+  /* Placeholder text */
+  ::placeholder {
+    color: var(--yellow-light);
+  }
+  /*Error Message*/
+  input.error, textarea.error{
+    border-color: var(--error-red);
+    background-color: #4b4b4b;
+    color: var(--error-red-light);
+  }
+  .error-message {
+    color: var(--error-red-light);
+  }
+
+  /* Confirmation section */
+  #confirmation {
+    background-color: var(--dark-bg);
+    box-shadow: 0 4px 12px var(--bg-color-fade);
+  }
+
+  #confirmation h2 {
+    color: var(--accent-two);
+  }
+
+  #confirmation dt {
+    color: var(--dark-text);
+  }
+
+  #confirmation dd {
+    color: rgba(247, 247, 247, 0.7);
+  }
+
+  #confirmation p {
+    color: var(--dark-text);
+  }
+
+  /* Reset button */
+  button[type="reset"] {
+    background-color: transparent;
+    color: var(--dark-text);
+    border-color: var(--dark-text);
+  }
+
+  /* Return button */
+  #returnBtn {
+    background-color: var(--accent-two);
+    color: var(--dark-bg);
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  header nav.header-menu {
+    position: absolute;       
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--dark-text);
+    padding: 1rem 2rem;
+    flex-direction: column;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1000;            
+  }
+  nav.header-menu ul{
+    flex-direction: column;
+  }
+   @media (prefers-color-scheme: dark) {
+    header nav.header-menu {
+      background-color: var(--accent-color);
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .main-box {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .primary-actions ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .site-branding img {
+    width: 25vw;
+  }
+    form {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  fieldset {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  button[type="submit"],
+  button[type="reset"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .social img{
+    width: 25vw;
+  }
+  
+}

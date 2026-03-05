@@ -13,6 +13,7 @@
   --dark-text: #F7F7F7; 
   --focus: #1159ab;
   --focus-dark: #51a2ff;
+  --blue-background: rgb(194, 230, 252, 0.8);
   --grey-light: #ccc;
   --readable-box-color: rgba(255, 255, 255, 0.85);
   --box-shadow: rgba(0, 0, 0, 0.3);
@@ -31,6 +32,7 @@ html,
 body {
   min-height: 100%;
   font-size: 100%;
+  margin: 0;
 }
 
 body {
@@ -60,7 +62,8 @@ header{
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 3vw;
-  margin-top: 2vw;
+  margin: 0;  
+  background-color: var(--blue-background);
 }
 main{
   flex: 1;
@@ -333,7 +336,7 @@ body.dyslexia-mode #dyslexia-toggle {
 .skip-link:focus { top: 0; }
 
 .main-box {
-  background-color: var(--bg-color); /* semi-transparent white for readability */
+  background-color: var(--readable-box-color); /* semi-transparent white for readability */
   padding: 3rem 2rem;  /* space around text and links */
   border-radius: 15px; /* rounded corners */
   box-shadow: 0 8px 20px var(--box-shadow); /* subtle shadow to float above bg */
@@ -585,7 +588,7 @@ textarea.error {
   background-color: var(--accent-two);
 }
   .main-box{
-    background-color: transparent;
+    background-color: var(--accent-color-fade);
     box-shadow:0 8px 20px var(--transparent);
   }
   

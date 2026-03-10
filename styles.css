@@ -194,6 +194,10 @@ address{
     line-height: 1.5;
 }
 /*header styles*/
+figure{
+  margin: 0;
+  padding: 0;
+}
 .site-branding{
   display: flex;
   flex-direction: row;
@@ -303,6 +307,7 @@ li a:focus-visible {
   height:fit-content;
   /* key fix: push to the right in flex container */
   margin-left: auto;
+  box-shadow: 0 2px 6px var(--box-shadow);
 }
 
 .dyslexia-mode button {
@@ -597,12 +602,87 @@ textarea.error {
     #confirmation dd {
       margin: 0.2rem 0 0 0;
       color: #555;}
+/*ABOUT PAGE*/
+/*ABOUT PAGE HERO*/
+body.about .hero {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1592505151560-CEYVJVN3I89QY1W0RVCQ/homepage%2Bbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+body.about header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+body.about .hero h2 {
+  position: relative;
+  z-index: 2;
+  color: var(--text-color);
+  font-size: clamp(2rem, 5vw, 4rem);
+  background-color: var(--readable-box-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 0;
+}
+body.about {
+  background-image: none;
+  background-color: var(--bg-color);
+}
+body.about main {
+  margin: 0;
+  padding: 0;
+}
+body.about::before,
+body.about::after {
+  display: none;
+}
+body.about .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color-fade);
+  z-index: 1;
+}
+.abt-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  padding : 0 2rem;
+}
 
+.abt-flex img{
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+  align-self: stretch;
+}
+
+body.about .abt-content h2{
+  text-align: left;
+}
+body.about main {
+  align-items: stretch;
+  text-align: left;
+}
 /* Optional: responsive adjustments */
 @media (max-width: 768px) {
   .main-box {
     padding: 2rem 1rem;
   }
+  
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -716,6 +796,17 @@ textarea.error {
     background-color: var(--accent-two);
     color: var(--dark-bg);
   }
+  /*About Page*/
+  body.about .hero::before{
+    background-color: var(--accent-color-fade);
+  }
+  body.about .hero h2{
+    color: var(--dark-text);
+    background-color: var(--accent-color-fade);
+  }
+  body.about{
+    background-color: var(--dark-bg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -738,13 +829,13 @@ textarea.error {
   nav.header-menu ul{
     flex-direction: column;
   }
-   @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     header nav.header-menu {
       background-color: var(--accent-color);
     }
+
   }
 }
-
 
 @media (max-width: 600px) {
   .main-box {
@@ -780,12 +871,35 @@ textarea.error {
     align-items: center;
     gap: 1rem;
   }
+    body.about .hero h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .abt-content {
+    padding: 0 1rem;
+  }
 }
 
 
 @media (max-width: 900px) {
   .social img{
     width: 25vw;
+  }
+   .abt-flex {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .abt-flex img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body.about main {
+    align-items: stretch;
   }
   
 }

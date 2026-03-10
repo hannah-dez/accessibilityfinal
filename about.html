@@ -7,15 +7,15 @@
     <meta name="description" content="The home of local beer in Philadelphia. 21 drafts and 2 hand pumps complement a changing, locally sourced chalkboard menu." />
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="about">
     <header aria-label="Header">
         <a href="#main" class="skip-link">Skip to main content</a>
 
-        <div class="site-branding" role="Content">
+        <figure class="site-branding">
             <img src="https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1574188395319-GMSWC31FBBBBGD2QSYED/standardtaplogo.png"
                 alt="Red Circle with Yellow 'Standard Tap' Words" />
         <h1>Eat Local | Drink Local</h1>
-        </div>
+        </figure>
         
     
         <button class="hamburger" aria-label="Hamburger Menu" aria-expanded="false">
@@ -24,7 +24,7 @@
         <span></span>
         </button>
 
-        <nav class="header-menu closed" aria-label="Primary Menu">
+        <nav class="header-menu closed" aria-label="Primary Menu" role="menu">
         <ul aria-label="Navigation">
             <li aria-label="Home"><a href="index.html">Home</a></li>
             <li aria-label="About Us"><a href="about.html">About Us</a></li>
@@ -33,7 +33,17 @@
         </nav> 
     </header>
     <main>
-
+        <section class="hero" aria-label="Hero Image" role="banner">
+            <h2>About Us</h2>
+        </section>
+        <section class="abt-flex" aria-label="about content" role="group">
+            <img src="./assets/aboutimage.jpg" alt="Image of two men in the standard tap standing by an arch way laughing and holding a draft beer.One wears a standard tap shirt and smiles into the camera while the other smiles at the ground.">
+            <article class="abt-content" aria-label="About Us Content" role="Content">
+                <h2>Twenty Five Years of Craft Beer and Local Fare</h2>
+                <p>When Standard Tap opened its doors in December of 1999, our goal was simple: to create a neighborhood tavern that featured great beer and wholesome food. With that in mind, we offer a draft-only beer selection that highlights the vast array of styles crafted by breweries located in Pennsylvania, New Jersey & Delaware. Our food menu both complements the beer and expands the notion of what pub food can be. “The gastropub that started it all with a focus on great local craft beer and serious food still captures a certain super-bar magic in the moody, rambling rooms of it's Northern Liberties tavern” mentions Craig Laban in his revisit to Standard Tap.</p>
+                <p>Our menu features a wide selection of hearty dishes using seasonal ingredients and local produce. We are proud to support initiatives like Pennsylvania's Buy Fresh Buy Local movement and urban agriculture from local farms. </p>
+            </article>
+        </section>
     </main>
 <footer>
     <ul class="primary-menu" aria-label="Footer Navigation">

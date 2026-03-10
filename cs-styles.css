@@ -1,0 +1,41 @@
+:root {
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --bg-color-fade:rgba(255, 255, 255, 0.386);
+  --accent-color: #630606;
+  --red-color-fade: rgba(99, 6, 6, 0.8); 
+  --error-red: #cc0000;
+  --error-red-light: #ffcccc;
+  --yellow-light: #fff0c8;
+  --accent-two: #bc8d00;
+  --accent-color-fade: rgba(0, 0, 0, 0.60);
+  --dark-bg: #2c2c2c;
+  --dark-bg-two: #4b4b4b;
+  --dark-text: #F7F7F7; 
+  --focus: #1159ab;
+  --focus-dark: #51a2ff;
+  --blue-background: rgb(194, 230, 252, 0.8);
+  --grey-light: #ccc;
+  --readable-box-color: rgba(255, 255, 255, 0.85);
+  --box-shadow: rgba(0, 0, 0, 0.3);
+  --transparent: rgba(0, 0, 0, 0);
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url(./assets/OpenDyslexic-Regular.otf);
+}
+@font-face {
+    font-family: 'Verdana';
+    src: url(./assets/Verdana.ttf);
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 15vw ;
+  font-family: "Verdana", sans-serif;
+}
+
+.hero-img{
+    width: 100%;
+}
+

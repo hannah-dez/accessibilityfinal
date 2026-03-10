@@ -65,8 +65,13 @@ header{
   padding: 0px 3vw;
   margin: 0;  
   background-color: var(--blue-background);
+    position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
-main{
+.main{
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -74,7 +79,7 @@ main{
   align-items: center;        /* horizontal centering */
   justify-content: flex-start; /* vertical top alignment */
   text-align: center;
-  margin-top: 3vw;
+  height: 100%;
 }
 .flex{
   display: flex;
@@ -355,6 +360,7 @@ body.dyslexia-mode #dyslexia-toggle {
   max-width: fit-content; /* optional: constrain width */
   width: 75%;
   margin: 0 auto; /* center horizontally */
+  margin-top: 70px; /* space from header */
 }
 
  
@@ -516,6 +522,10 @@ form > label {
       cursor: pointer;
     }
 
+    #contactForm{
+        margin-top:70px;
+    }
+
     #contactForm.hidden {
       display: none;
     }
@@ -604,20 +614,6 @@ textarea.error {
       color: #555;}
 /*ABOUT PAGE*/
 /*ABOUT PAGE HERO*/
-body.about .hero {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1592505151560-CEYVJVN3I89QY1W0RVCQ/homepage%2Bbackground.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 2rem;
-}
 body.about header {
   position: fixed;
   top: 0;
@@ -625,6 +621,57 @@ body.about header {
   right: 0;
   z-index: 10;
 }
+
+body.about {
+  background-image: none;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body.about::before,
+body.about::after {
+  display: none;
+}
+
+body.about main {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 0 !important;
+  align-items: stretch;
+  text-align: left;
+}
+
+body.about .hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1592505151560-CEYVJVN3I89QY1W0RVCQ/homepage%2Bbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+body.about .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color-fade);
+  z-index: 1;
+}
+
 body.about .hero h2 {
   position: relative;
   z-index: 2;
@@ -635,48 +682,31 @@ body.about .hero h2 {
   border-radius: 10px;
   margin: 0;
 }
-body.about {
-  background-image: none;
-  background-color: var(--bg-color);
+
+/* This pushes the abt-flex content below the hero */
+body.about .abt-flex {
+  margin-top: 100vh;
 }
-body.about main {
-  margin: 0;
-  padding: 0;
-}
-body.about::before,
-body.about::after {
-  display: none;
-}
-body.about .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg-color-fade);
-  z-index: 1;
-}
-.abt-flex{
+
+.abt-flex {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 2rem;
-  margin: 0 auto;
-  padding : 0 2rem;
+  padding: 0 2rem;
 }
 
-.abt-flex img{
+.abt-flex img {
   height: 100%;
   width: 50%;
   object-fit: cover;
   align-self: stretch;
 }
 
-body.about .abt-content h2{
+body.about .abt-content h2 {
   text-align: left;
 }
-body.about main {
-  align-items: stretch;
-  text-align: left;
-}
+
 /* Optional: responsive adjustments */
 @media (max-width: 768px) {
   .main-box {

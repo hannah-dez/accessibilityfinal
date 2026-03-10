@@ -12,14 +12,14 @@
   <header aria-label="Header">
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <figure class="site-branding">
+    <div class="site-branding">
         <img src="https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1574188395319-GMSWC31FBBBBGD2QSYED/standardtaplogo.png"
             alt="Red Circle with Yellow 'Standard Tap' Words" />
       <h1>Eat Local | Drink Local</h1>
-    </figure>
+    </div>
     
   
-    <button class="hamburger" aria-label="Hamburger Menu" aria-expanded="false">
+    <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -35,11 +35,12 @@
   </header>
 
 
-  <main id="main" tabindex="-1">
-    <article class="main-box" aria-label="Location, Menu, and Visit Navigation" role="Content">
+  <main id="main" class="main" tabindex="-1">
+    <article class="main-box" aria-label="Location, Menu, and Visit Navigation">
       <address aria-label="Address">901 N 2nd St | Northern Liberties | Philadelphia, PA</address>
 
       <nav class="primary-actions" aria-label="Menu and Visit Navigation">
+        <a href="#footer" class="skip-link">Skip navigation links</a>
         <ul aria-label="Menu and Visit Navigation">
           <li aria-label="Eat"><a href="#" data-bg="food" class="action-link">Eat</a></li>
           <li aria-label="Drink"><a href="#" data-bg="drink" class="action-link">Drink</a></li>
@@ -49,26 +50,26 @@
       </nav>
     </article>
   </main>
-  <footer>
+<footer id="footer">
     <ul class="primary-menu" aria-label="Footer Navigation">
-      <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
-          <a href="" rel="noopener noreferrer" target="_blank">
+        <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
+        <a href="https://www.instagram.com/standardtap/" rel="noopener noreferrer" target="_blank">
             <img src="assets/insta-logo.svg" data-light="assets/insta-logo.svg" data-dark="assets/insta-dark-logo.svg" alt="Instagram Logo"/>
-          </a>
+        </a>
         </li>
         <li class="social" aria-label="Standard Tap on Facebook (opens in a new tab)">
-          <a href="" rel="noopener noreferrer" target="_blank">
-            <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
-          </a>
+        <a href="https://www.facebook.com/StandardTap" rel="noopener noreferrer" target="_blank">
+        <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
+        </a>
         </li>
     </ul>
-    <div class="dyslexia-toggle" aria-label="accessibility options" role="Toggle">
-        <span id="dyslexia-label" role="Label">Dyslexia Mode</span>
-        <button id="dyslexia-toggle" class="switch" role="Switch" aria-checked="false" aria-label="Toggle Dyslexia Mode">
-          <span class="switch-handle"></span>
+    <div class="dyslexia-toggle" aria-label="accessibility options">
+        <span id="dyslexia-label" >Dyslexia Mode</span>
+        <button id="dyslexia-toggle" class="switch" aria-checked="false" aria-label="Toggle Dyslexia Mode">
+            <span class="switch-handle"></span>
         </button>
-      </div>
-  </footer>
+    </div>
+    </footer>
 
   <script>
     const toggle = document.getElementById("dyslexia-toggle");

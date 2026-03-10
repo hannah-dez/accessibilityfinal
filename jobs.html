@@ -9,33 +9,33 @@
 </head>
 
 <body class="jobs">
-  <header aria-label="Header">
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <header aria-label="Header">
+      <a href="#main" class="skip-link">Skip to main content</a>
 
-    <figure class="site-branding">
-        <img src="https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1574188395319-GMSWC31FBBBBGD2QSYED/standardtaplogo.png"
-            alt="Red Circle with Yellow 'Standard Tap' Words" />
-      <h1>Eat Local | Drink Local</h1>
-    </figure>
+      <div class="site-branding">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dd43005931aab7d2c9b4cdf/1574188395319-GMSWC31FBBBBGD2QSYED/standardtaplogo.png"
+              alt="Red Circle with Yellow 'Standard Tap' Words" />
+        <h1>Eat Local | Drink Local</h1>
+      </div>
+      
     
-  
-    <button class="hamburger" aria-label="Hamburger Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <nav class="header-menu closed" aria-label="Primary Menu">
-      <ul aria-label="Navigation">
-        <li aria-label="Home"><a href="index.html">Home</a></li>
-        <li aria-label="About Us"><a href="about.html">About Us</a></li>
-        <li aria-label="Jobs"><a href="jobs.html">Jobs</a></li>
-      </ul>
-    </nav> 
-  </header>
+      <nav class="header-menu closed" aria-label="Primary Menu">
+        <ul aria-label="Navigation">
+          <li aria-label="Home"><a href="index.html">Home</a></li>
+          <li aria-label="About Us"><a href="about.html">About Us</a></li>
+          <li aria-label="Jobs"><a href="jobs.html">Jobs</a></li>
+        </ul>
+      </nav> 
+    </header>
 
 
-  <main id="main" tabindex="-1" aria-label="Job Application Form">
+  <main id="main" class="main" tabindex="-1" style="position:relative;">
     <form id="contactForm" action="#" method="POST" enctype="multipart/form-data" aria-label="Job Application Form">  
       <h2>Apply For Jobs</h2>
       <fieldset class="fieldset">
@@ -63,6 +63,7 @@
 
       <label for="resume">Attach Resume
         <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" aria-describedby="resume-hint">
+        <span id="resume-hint" class="sr-only">Accepted formats: PDF, DOC, DOCX</span>
       </label>
       <button type="submit">Submit</button>
       <button type="reset" aria-label="Reset all form fields">Reset Form</button>
@@ -81,34 +82,34 @@
         <dd id="conf-comments" aria-label="Inputed Response"></dd>
         <dt>Resume:</dt>
         <dd id="conf-resume" aria-label="Upload File"></dd>
+        
       </dl>
       <button id="returnBtn" type="button">Submit Another Response</button>
     </section>
   </main>
-  <footer>
+<footer>
     <ul class="primary-menu" aria-label="Footer Navigation">
-      <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
-          <a href="" rel="noopener noreferrer" target="_blank">
+        <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
+        <a href="https://www.instagram.com/standardtap/" rel="noopener noreferrer" target="_blank">
             <img src="assets/insta-logo.svg" data-light="assets/insta-logo.svg" data-dark="assets/insta-dark-logo.svg" alt="Instagram Logo"/>
-          </a>
+        </a>
         </li>
         <li class="social" aria-label="Standard Tap on Facebook (opens in a new tab)">
-          <a href="" rel="noopener noreferrer" target="_blank">
-            <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
-          </a>
+        <a href="https://www.facebook.com/StandardTap" rel="noopener noreferrer" target="_blank">
+        <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
+        </a>
         </li>
     </ul>
     <div class="dyslexia-toggle" aria-label="accessibility options" role="Toggle">
         <span id="dyslexia-label" role="Label">Dyslexia Mode</span>
         <button id="dyslexia-toggle" class="switch" role="Switch" aria-checked="false" aria-label="Toggle Dyslexia Mode">
-          <span class="switch-handle"></span>
+            <span class="switch-handle"></span>
         </button>
-      </div>
-  </footer>
-  <script>
-    const toggle = document.getElementById("dyslexia-toggle");
+    </div>
+    </footer>
+    <script>
+const toggle = document.getElementById("dyslexia-toggle");
 
-// Load saved preference
 const isOn = localStorage.getItem("dyslexia") === "on";
 if (isOn) {
   document.body.classList.add("dyslexia-mode");
@@ -167,34 +168,18 @@ function handleResize(e) {
 handleResize(mediaQuery);
 mediaQuery.addEventListener("change", handleResize);
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+// Shared error clearing function
+function clearErrors() {
+  ['firstName', 'lastName', 'email', 'comments'].forEach(id => {
+    const input = document.getElementById(id);
+    input.classList.remove('error');
+    input.setAttribute('aria-invalid', 'false');
+    const errorEl = document.getElementById(id + '-error');
+    if (errorEl) errorEl.classList.remove('visible');
+  });
+}
 
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const email = document.getElementById('email').value;
-  const comments = document.getElementById('comments').value;
-  const resumeInput = document.getElementById('resume');
-  const resumeName = resumeInput.files.length > 0 ? resumeInput.files[0].name : 'No file attached';
-
-  document.getElementById('conf-firstName').textContent = firstName;
-  document.getElementById('conf-lastName').textContent = lastName;
-  document.getElementById('conf-email').textContent = email;
-  document.getElementById('conf-comments').textContent = comments || 'None provided';
-  document.getElementById('conf-resume').textContent = resumeName;
-
-  document.getElementById('contactForm').classList.add('hidden');
-  document.getElementById('confirmation').style.display = 'block';
-});
-
-document.getElementById('returnBtn').addEventListener('click', function() {
-  document.getElementById('contactForm').reset();
-  document.getElementById('confirmation').style.display = 'none';
-  document.getElementById('contactForm').classList.remove('hidden');
-  document.getElementById('firstName').focus();
-});
-
-//form error correction
+// Form validation
 function validateField(input) {
   const errorEl = document.getElementById(input.id + '-error');
   if (!errorEl) return;
@@ -219,7 +204,7 @@ function validateField(input) {
   }
 }
 
-// Validate on blur (clicking out or tabbing past)
+// Validate on blur and input
 ['firstName', 'lastName', 'email', 'comments'].forEach(id => {
   const input = document.getElementById(id);
   input.addEventListener('blur', () => validateField(input));
@@ -228,8 +213,10 @@ function validateField(input) {
   });
 });
 
-// Validate all on submit
+// Submit handler
 document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
   const fields = ['firstName', 'lastName', 'email', 'comments'];
   let hasError = false;
 
@@ -240,13 +227,42 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   });
 
   if (hasError) {
-    e.preventDefault();
-    // Focus the first error field
     const firstError = document.querySelector('input.error, textarea.error');
     if (firstError) firstError.focus();
     return;
   }
-  // rest of your existing submit code...
+
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  const email = document.getElementById('email').value;
+  const comments = document.getElementById('comments').value;
+  const resumeInput = document.getElementById('resume');
+  const resumeName = resumeInput.files.length > 0 ? resumeInput.files[0].name : 'No file attached';
+
+  document.getElementById('conf-firstName').textContent = firstName;
+  document.getElementById('conf-lastName').textContent = lastName;
+  document.getElementById('conf-email').textContent = email;
+  document.getElementById('conf-comments').textContent = comments || 'None provided';
+  document.getElementById('conf-resume').textContent = resumeName;
+
+  document.getElementById('contactForm').classList.add('hidden');
+  document.getElementById('confirmation').style.display = 'block';
+});
+
+// Return button
+document.getElementById('returnBtn').addEventListener('click', function() {
+  const form = document.getElementById('contactForm');
+  form.reset();
+  document.getElementById('confirmation').style.display = 'none';
+  form.classList.remove('hidden');
+  clearErrors();
+  document.getElementById('firstName').focus();
+});
+
+// Reset button
+document.querySelector('button[type="reset"]').addEventListener('click', function() {
+  clearErrors();
+  document.getElementById('firstName').focus();
 });
   </script>
 </body>

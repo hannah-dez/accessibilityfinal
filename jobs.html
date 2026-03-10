@@ -28,26 +28,9 @@
     <nav class="header-menu closed" aria-label="Primary Menu">
       <ul aria-label="Navigation">
         <li aria-label="Home"><a href="index.html">Home</a></li>
-        <li aria-label="About Us"><a href="#">About Us</a></li>
-        <li aria-label="Jobs"><a href="#">Jobs</a></li>
-        <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
-          <a href="" rel="noopener noreferrer">
-            <img src="assets/insta-logo.svg" data-light="assets/insta-logo.svg" data-dark="assets/insta-dark-logo.svg" alt="Instagram Logo"/>
-          </a>
-        </li>
-        <li class="social" aria-label="Standard Tap on Facebook (opens in a new tab)">
-          <a href="" rel="noopener noreferrer">
-            <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
-          </a>
-        </li>
-      </ul><!--ADD IN TARGET="BLANK"-->
-
-      <div class="dyslexia-toggle" aria-label="accessibility options" role="Toggle">
-        <span id="dyslexia-label" role="Label">Dyslexia Mode</span>
-        <button id="dyslexia-toggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle Dyslexia Mode">
-          <span class="switch-handle"></span>
-        </button>
-      </div>
+        <li aria-label="About Us"><a href="about.html">About Us</a></li>
+        <li aria-label="Jobs"><a href="jobs.html">Jobs</a></li>
+      </ul>
     </nav> 
   </header>
 
@@ -102,7 +85,26 @@
       <button id="returnBtn" type="button">Submit Another Response</button>
     </section>
   </main>
-
+  <footer>
+    <ul class="primary-menu" aria-label="Footer Navigation">
+      <li class="social" aria-label="Standard Tap on Instagram (opens in a new tab)">
+          <a href="" rel="noopener noreferrer" target="_blank">
+            <img src="assets/insta-logo.svg" data-light="assets/insta-logo.svg" data-dark="assets/insta-dark-logo.svg" alt="Instagram Logo"/>
+          </a>
+        </li>
+        <li class="social" aria-label="Standard Tap on Facebook (opens in a new tab)">
+          <a href="" rel="noopener noreferrer" target="_blank">
+            <img src="assets/fb-logo.svg" data-light="assets/fb-logo.svg" data-dark="assets/fb-dark-logo.svg" alt="Facebook Logo"/>
+          </a>
+        </li>
+    </ul>
+    <div class="dyslexia-toggle" aria-label="accessibility options" role="Toggle">
+        <span id="dyslexia-label" role="Label">Dyslexia Mode</span>
+        <button id="dyslexia-toggle" class="switch" role="Switch" aria-checked="false" aria-label="Toggle Dyslexia Mode">
+          <span class="switch-handle"></span>
+        </button>
+      </div>
+  </footer>
   <script>
     const toggle = document.getElementById("dyslexia-toggle");
 

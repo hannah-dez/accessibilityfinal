@@ -28,6 +28,12 @@
     font-family: 'Verdana';
     src: url(./assets/Verdana.ttf);
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 html,
 body {
@@ -56,7 +62,9 @@ main {
   z-index: 2;
 }
 
-
+.index{
+  overflow-x: hidden;
+}
 header{
   display: flex;
   position: relative;
@@ -137,10 +145,29 @@ body.bg-happy::after {
 /*general styles*/
 
 p{
-    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-size: clamp(1rem, 1.1rem, 1.5rem);
     line-height: 1.5;
     max-width: 65ch;
     text-align: start;
+}
+header {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+    margin: 0, auto;
+  padding: 0;
+  gap: 2vw;
+}
+
+nav a {
+  font-size: clamp(1rem, 1.3rem, 1.5rem);
+  text-decoration: none;
 }
 
 .primary-actions {
@@ -166,27 +193,11 @@ button {
 a{
     text-decoration: none;
     color: var(--text-color);
-    font-size: 1rem;
     line-height: 1.5;
 }
 
-ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-     margin: 0, auto;
-    padding: 0;
-    gap: 2.5vw;
-}
-
-main li {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-}
-
 h1{
-   font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+   font-size: clamp(1.05rem, 1.3rem, 1.5rem);
     font-weight: 600;
     line-height: 1.5;
     font-style: italic;
@@ -215,6 +226,7 @@ figure{
 #main{
     margin-top: 1vw;
     padding: 1vw;
+    width: 100%;
 }
 
 .skip-link {
@@ -250,9 +262,7 @@ li a:focus-visible {
     text-decoration: underline;
 
 }
-header nav a {
-  font-size: 1rem;
-}
+
 /* Switch body */
 .switch {
   all: unset;
@@ -446,6 +456,9 @@ body.jobs main {
   padding: 0;
   margin: 0;
   width: 100%;
+}
+body.jobs{
+  overflow-x: hidden;
 }
 
 

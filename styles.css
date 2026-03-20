@@ -795,11 +795,18 @@ font-style: italic;
   height: auto;
   margin-bottom: 1rem;
 }
-
-.contact{
+.contact {
   padding: 3rem 2rem;
+}
+
+.contact p{
+  justify-content: center;
   text-align: center;
-  align-items: start;
+  justify-items: center;
+}
+
+.contact h2{
+  padding-bottom: 1rem;
 }
 /* Optional: responsive adjustments */
 @media (max-width: 768px) {
@@ -931,6 +938,17 @@ font-style: italic;
   body.about{
     background-color: var(--dark-bg);
   }
+
+  .staff-card{
+    background-color: var(--dark-bg-two);
+  }
+  .skip-link{
+    color: var(--dark-text);
+  }
+  .skip-link-two{
+    color: var(--dark-text);
+    background-color: var(--accent-color);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1026,4 +1044,9 @@ font-style: italic;
     align-items: stretch;
   }
   
+  .flex-row{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
